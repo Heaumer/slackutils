@@ -1,0 +1,7 @@
+#!/bin/sh
+
+which slackpkg || exit 1
+
+slackpkg update
+slackpkg install-new
+slackpkg upgrade-all
