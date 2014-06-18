@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ "$1" == "" ]; then
+	echo 'xchroot </some/dir>'
+	exit 1
+fi
+
+# Check is apparently mounted
+if [ ! -d $1/proc/self ]; then
+	for d in sys proc run dev dev/pts; do
+		mount --bind /$d $1/$d
+	done
+fi
+
+# DNS
+cp /etc/resolv.conf $1/etc/resolv.conf
+
+chroot $1 /bin/sh
+
+for d in sys proc run dev/pts dev; do
+	umount $1/$d
+done
