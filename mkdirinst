@@ -4,14 +4,14 @@
 
 # version to be used (current, 14.1, 13.37, etc.)
 version=current
-# architecture (x86, 64 or arm)
+# architecture : 64, arm or nothing (x86)
 arch=64
 # mirror from which packages should be fetched
 mirror=http://slackware.mirrors.ovh.net/ftp.slackware.com/slackware$arch-$version/
 # installation directory
 root=/mnt/slack64
 # packages template
-template=template/base
+template=templates/base
 
 # --- END CONFIG
 
@@ -35,7 +35,7 @@ curl $mirror/slackware$arch/FILE_LIST | awk '{ print $NF }' > $fl
 sed -i '/\.txt$/d; /\.asc/d' $fl
 
 # Download all packages
-for p in `cat $templates`; do
+for p in `cat $template`; do
 	(cd $tmp/pkgs; curl -C - -O $mirror/slackware$arch/`grep $p- $fl`)
 done
 
