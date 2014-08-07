@@ -94,6 +94,7 @@ ap/diffstat
 ap/diffutils
 ap/dmapi
 ap/dmidecode
+ap/flac
 ap/foomatic-filters
 ap/ghostscript
 ap/ghostscript-fonts-std
@@ -106,6 +107,7 @@ ap/linuxdoc-tools
 ap/lm_sensors
 ap/man
 ap/man-pages
+ap/mpg123
 ap/nano
 ap/seejpeg
 ap/slackpkg
@@ -240,6 +242,7 @@ l/libarchive
 l/libart_lgpl
 l/libatasmart
 l/libbluedevil
+l/libcaca
 l/libcanberra
 l/libcap
 l/libcddb
