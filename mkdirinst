@@ -12,6 +12,8 @@ mirror=http://slackware.mirrors.ovh.net/ftp.slackware.com/slackware$arch-$versio
 root=/mnt/slack64
 # packages template
 template=templates/base
+# timezone
+timezone=Europe/Paris
 
 # --- END CONFIG
 
@@ -46,6 +48,9 @@ installpkg --root $root $tmp/pkg/aaa_*
 for p in $tmp/pkgs/*; do
 	installpkg --root $root $p
 done
+
+# Set timezone
+cp /usr/share/zoneinfo/$timezone /etc/localtime
 
 # Generate /etc/fstab is $root is apparently mounted
 grep $root /etc/mtab && \
