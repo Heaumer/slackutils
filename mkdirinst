@@ -14,11 +14,13 @@ root=/mnt/slack64
 template=templates/base
 # timezone
 timezone=Europe/Paris
+# LANG env variable
+lang=en_US.UTF8
 
 # --- END CONFIG
 
-# temporary directory
-tmp=/tmp/minislack.$$
+# temporary directory (mktemp -d?)
+tmp=/tmp/mkdirinst.$$
 # file list (pkgs)
 fl=$tmp/FILE_LIST
 
@@ -50,7 +52,10 @@ for p in $tmp/pkgs/*; do
 done
 
 # Set timezone
-cp /usr/share/zoneinfo/$timezone /etc/localtime
+cp /usr/share/zoneinfo/$timezone $root/etc/localtime
+
+# Set LANG
+echo "export LANG=$lang" >> $root/etc/profile.d/lang.sh
 
 # Generate /etc/fstab is $root is apparently mounted
 grep $root /etc/mtab && \
