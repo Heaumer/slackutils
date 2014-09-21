@@ -1,6 +1,6 @@
 #!/bin/sh
 
-which slackpkg || exit 1
+which slackpkg &>/dev/null || exit 1
 
 slackpkg update
 slackpkg install-new
