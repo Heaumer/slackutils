@@ -301,6 +301,7 @@ l/libtasn1
 l/libtermcap
 l/libtheora
 l/libtiff
+l/libunistring
 l/libusb
 l/libusb-compat
 l/libvisual
